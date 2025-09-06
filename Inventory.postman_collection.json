@@ -1,0 +1,983 @@
+{
+	"info": {
+		"_postman_id": "07460b68-02c0-4928-8e06-960d590e5e57",
+		"name": "Inventory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24889851"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get All Categories",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/categories?pageNumber=0&pageSize=20&sortBy=categoryName&sortOrder=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "20"
+								},
+								{
+									"key": "sortBy",
+									"value": "categoryName"
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"categoryName\":\"Home Appliances\",\r\n  \"description\":\"Electrical appliances used at home\",\r\n  \"parentCategory\":\"Home Appliances\",\r\n  \"active\":\"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"categoryName\":\"Home Appliances\",\r\n  \"description\":\"Electrical appliances used at home\",\r\n  \"active\":\"true\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/categories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"categoryName\":\"Home Appliances\",\r\n  \"description\":\"Electrical appliances used at home\",\r\n  \"parentCategory\":\"Home Appliances\",\r\n  \"active\":\"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/categories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"streetName\":\"123 Industrial Blvd, Suite 400\",\r\n    \"city\":\"San Jose\",\r\n    \"state\":\"CA\",\r\n    \"zip\":\"95134\",\r\n    \"country\":\"USA\",\r\n    \"supplierId\": 1\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/categories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "InventoryItems",
+			"item": [
+				{
+					"name": "Get all Items",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"streetName\":\"123 Industrial Blvd, Suite 400\",\r\n    \"city\":\"San Jose\",\r\n    \"state\":\"CA\",\r\n    \"zip\":\"95134\",\r\n    \"country\":\"USA\",\r\n    \"supplierId\": 1\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/items?pageNumber=0&pageSize=10&sortBy=itemId&sortOrder=\"asc\"",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"items"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "itemId"
+								},
+								{
+									"key": "sortOrder",
+									"value": "\"asc\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Item",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"streetName\":\"123 Industrial Blvd, Suite 400\",\r\n    \"city\":\"San Jose\",\r\n    \"state\":\"CA\",\r\n    \"zip\":\"95134\",\r\n    \"country\":\"USA\",\r\n    \"supplierId\": 1\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/items/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Item",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itemId\": 2,\r\n    \"itemName\": \"Sony 65\\\" 4K TV\",\r\n    \"description\": \"UHD Smart TV with HDR\",\r\n    \"unitPrice\": 1199.0,\r\n    \"stock\": 5,\r\n    \"reOrderLevel\": 10,\r\n    \"status\": \"Active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/items/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itemId\": 2,\r\n    \"itemName\": \"Sony 65\\\" 4K TV\",\r\n    \"description\": \"UHD Smart TV with HDR\",\r\n    \"unitPrice\": 1199.0,\r\n    \"stock\": 5,\r\n    \"reOrderLevel\": 10,\r\n    \"status\": \"Active\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/items/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"itemName\": \"Wireless Earbuds Pro\",\r\n    \"description\": \"Noise-cancelling wireless earbuds with superior sound quality\",\r\n    \"unitPrice\": 80.00,\r\n    \"stock\": 200,\r\n    \"reOrderLevel\":10,\r\n    \"categoryId\":2,\r\n    \"status\": 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/supplier/3/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"supplier",
+								"3",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "     {\r\n        \"supplierName\": \"TechSource Ltd.\",\r\n        \"contactPerson\": \"Jane Doe\",\r\n        \"email\": \"jane.doe@techsource.com\",\r\n        \"phone\": \"+1-800-555-1234\",\r\n        \"website\": \"https://techsource.com\",\r\n        \"taxCode\": \"94-1234567\",\r\n        \"paymentTerms\": \"Net 30\",\r\n        \"isActive\": true,\r\n        \"notes\": \"Preferred supplier for electronics\"\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/items/setstatus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								"setstatus"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stock Management",
+			"item": [
+				{
+					"name": "Increase Stock",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"increase\":\"+\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/items/8/stock/increase",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								"8",
+								"stock",
+								"increase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decrease Stock",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"decrease\":\"-\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/items/1/stock/decrease",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								"1",
+								"stock",
+								"decrease"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Stock Level",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"supplierName\": \"BrightTech Solutions\",\r\n        \"contactPerson\": \"Alicia Brown\",\r\n        \"email\": \"alicia@brighttech.io\",\r\n        \"phone\": \"+44 20 7946 0000\",\r\n        \"website\": \"https://brighttech.io\",\r\n        \"taxCode\": \"GB123456789\",\r\n        \"paymentTerms\": \"Net 60\",\r\n        \"isActive\": true,\r\n        \"notes\": \"Supplies IT hardware\"\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/items/2/stock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								"2",
+								"stock"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Supplier",
+			"item": [
+				{
+					"name": "Get All Suppliers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"supplierName\": \"BrightTech Solutions\",\r\n        \"contactPerson\": \"Alicia Brown\",\r\n        \"email\": \"alicia@brighttech.io\",\r\n        \"phone\": \"+44 20 7946 0000\",\r\n        \"website\": \"https://brighttech.io\",\r\n        \"taxCode\": \"GB123456789\",\r\n        \"paymentTerms\": \"Net 60\",\r\n        \"isActive\": true,\r\n        \"notes\": \"Supplies IT hardware\"\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/suppliers?pageNumber=0&pageSize=10&sortBy=supplierId&sortOrder=\"asc\"",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"suppliers"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "supplierId"
+								},
+								{
+									"key": "sortOrder",
+									"value": "\"asc\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Supplier",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "     {\r\n        \"supplierName\": \"TechSource Ltd.\",\r\n        \"contactPerson\": \"Jane Doe\",\r\n        \"email\": \"jane.doe@techsource.com\",\r\n        \"phone\": \"+1-800-555-1234\",\r\n        \"website\": \"https://techsource.com\",\r\n        \"taxCode\": \"94-1234567\",\r\n        \"paymentTerms\": \"Net 30\",\r\n        \"isActive\": true,\r\n        \"notes\": \"Preferred supplier for electronics\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/suppliers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Supplier",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"supplierName\": \"BrightTech Solutions\",\r\n        \"contactPerson\": \"Alicia Brown\",\r\n        \"email\": \"alicia@brighttech.io\",\r\n        \"phone\": \"+44 20 7946 0000\",\r\n        \"website\": \"https://brighttech.io\",\r\n        \"taxCode\": \"GB123456789\",\r\n        \"paymentTerms\": \"Net 60\",\r\n        \"isActive\": true,\r\n        \"notes\": \"Supplies IT hardware\"\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/suppliers/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"suppliers",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Supplier",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"supplierName\": \"BrightTech Solutions\",\r\n    \"contactPerson\": \"Alicia Brown\",\r\n    \"email\": \"alicia@brighttech.io\",\r\n    \"website\": \"https://brighttech.io\",\r\n    \"taxCode\": \"GB123456789\",\r\n    \"paymentTerms\": \"Net 60\",\r\n    \"isActive\": true,\r\n    \"notes\": \"Supplies IT hardware\",\r\n    \"phone\": \"+44 20 7946 0000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/suppliers/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"suppliers",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Supplier",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/suppliers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"suppliers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "Add Address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"streetName\":\"123 Industrial Blvd, Suite 400\",\r\n    \"city\":\"San Jose\",\r\n    \"state\":\"CA\",\r\n    \"zip\":\"95134\",\r\n    \"country\":\"USA\",\r\n    \"supplierId\": 10\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/addresses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Addresses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/addresses?pageNumber=0&pageSize=10&sortBy=addressId&sortOrder=\"asc\"",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"addresses"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "addressId"
+								},
+								{
+									"key": "sortOrder",
+									"value": "\"asc\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Address",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"streetName\":\"123 Industrial Blvd, Suite 400\",\r\n    \"city\":\"San Jose\",\r\n    \"state\":\"CA\",\r\n    \"zip\":\"95134\",\r\n    \"country\":\"USA\",\r\n    \"supplierId\": 1\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/addresses/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"addresses",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Supplier addresses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/supplier/2/addresses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"supplier",
+								"2",
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Address",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n            \"streetName\": \"745 Silicon Ave\",\r\n            \"city\": \"London\",\r\n            \"state\": \"London\",\r\n            \"zip\": \"SW1A 1AA\",\r\n            \"country\": \"UK\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/addresses/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"addresses",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Address",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"streetName\":\"123 Industrial Blvd, Suite 400\",\r\n    \"city\":\"San Jose\",\r\n    \"state\":\"CA\",\r\n    \"zip\":\"95134\",\r\n    \"country\":\"USA\",\r\n    \"supplierId\": 1\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/addresses/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"addresses",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Filter",
+			"item": [
+				{
+					"name": "filter By name and category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"supplierName\": \"BrightTech Solutions\",\r\n        \"contactPerson\": \"Alicia Brown\",\r\n        \"email\": \"alicia@brighttech.io\",\r\n        \"phone\": \"+44 20 7946 0000\",\r\n        \"website\": \"https://brighttech.io\",\r\n        \"taxCode\": \"GB123456789\",\r\n        \"paymentTerms\": \"Net 60\",\r\n        \"isActive\": true,\r\n        \"notes\": \"Supplies IT hardware\"\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/items/category?itemName=Microwave Oven 1000W&categoryName=Kitchen Appliances",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								"category"
+							],
+							"query": [
+								{
+									"key": "itemName",
+									"value": "Microwave Oven 1000W"
+								},
+								{
+									"key": "categoryName",
+									"value": "Kitchen Appliances"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter low stock items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/items/lowstock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								"lowstock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter out of stock",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/inventory/items/out-of-stock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								"out-of-stock"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User credentials",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"username\":\"user1\",\r\n        \"password\":\"123456789\",\r\n        \"email\":\"user1@gmail.com\",\r\n        \"role\":[\"admin\"]\r\n\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"username\":\"user1\",\r\n        \"password\":\"123456789\"\r\n\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signout",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
